@@ -16,9 +16,9 @@ body {
 /* Header */
 header {
   text-align: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   padding: 25px;
-  border-bottom:gray;
+  border-bottom: 2px solid #888;
 }
 
 header .logo {
@@ -29,12 +29,14 @@ header .logo {
 header h1 {
   font-size: 2rem;
   margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
 header h2 {
   font-size: 1.1rem;
   font-weight: 300;
   color: #ddd;
+  margin-bottom: 10px;
 }
 
 /* Navigation */
@@ -47,29 +49,30 @@ nav a {
   margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s, border-bottom 0.3s;
-  padding-bottom: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
-  color: gray;
-  border-bottom:gray;
+  color: #000;
+  background: #ffcc00;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   margin: 80px auto;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   padding: 50px;
   border-radius: 12px;
-  max-width: 800px;
+  max-width: 900px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .hero h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
@@ -79,32 +82,79 @@ nav a.active {
 }
 
 .btn {
-  background: linear-gradient(135deg, gray ,gray);
-  color: white;
+  background: #ffcc00;
+  color: #000;
   padding: 12px 25px;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: all 0.3s;
+  margin: 5px;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, gray, gray);
+  transform: scale(1.07);
+  background: #ffc107;
+}
+
+/* Small buttons */
+.btn-small {
+  display: inline-block;
+  background: #ffcc00;
   color: #000;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+  background: #ffc107;
   transform: scale(1.05);
 }
 
 /* Content Sections */
-.content, .course-section {
+.content, .course-section, .highlights, .news {
   max-width: 1000px;
   margin: 50px auto;
-  padding: 20px;
+  padding: 25px;
   background: rgba(0, 0, 0, 0.65);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* Course Cards */
+/* Highlights Section */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+
+.highlight-card h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.highlight-card p {
+  color: #eee;
+}
+
+/* Courses Section */
 .course-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -112,7 +162,7 @@ nav a.active {
 }
 
 .course-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   padding: 25px;
   border-radius: 12px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -124,33 +174,88 @@ nav a.active {
 }
 
 .course-card h2 {
-  color: white;
+  color: #ffcc00;
   margin-bottom: 15px;
 }
 
-.course-card p {
+.course-card p, .course-card ul {
   color: #eee;
+  margin-bottom: 10px;
 }
 
-/* Advantages */
-.content ul {
+.course-card ul {
   list-style: disc;
   padding-left: 20px;
-  text-align: left;
+}
+
+/* Advantages List */
+.content ul {
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 10px 0 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  align-self: flex-start;
+}
+
+/* News Section */
+.news h2 {
+  margin-bottom: 15px;
+  color: #ffcc00;
+}
+
+.news ul {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.news ul li {
+  margin-bottom: 10px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.85);
-  border-top: 3px gray;
-  margin-top: 30px;
+  border-top: 2px solid #888;
+  margin-top: 40px;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .course-section {
+  .course-section, .highlights {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    margin: 40px 20px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
   }
 }
